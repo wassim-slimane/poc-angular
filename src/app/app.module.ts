@@ -6,13 +6,15 @@ import { FirstComponentComponent } from './first-component/first-component.compo
 import { DeviceComponent } from './device/device.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoTaskComponent } from './todo-task/todo-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponentComponent,
     DeviceComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoTaskComponent
   ],
   imports: [
     BrowserModule,

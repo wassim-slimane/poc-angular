@@ -8,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class TodoListComponent implements OnInit {
 
   todoTitle : string = ""
-  todoStatus : boolean = false
 
-  todoTab : {title: string, status: boolean}[] = [
+  todoList : {title: string, status: boolean}[] = [
     {
       title: "tache 1",
       status: false,
@@ -31,12 +30,19 @@ export class TodoListComponent implements OnInit {
       title: "tache 5",
       status: false,
     }
-  ]
+  ];
 
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+  
+  addTask() {
+    // Faire une interface pour la todoList
+    if (this.todoTitle.length > 0 && this.todoTitle !== this.todoList.at(-1)?.title) {
+      this.todoList.push({title: this.todoTitle, status: false});
+    }
   }
 
 }
