@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Devices :</h2>
+  
+        <p>Mise à jour : {{ lastUpdate | date: 'EEEE d MMMM y' | lowercase }}</p>
+  
+        <ul class="list-group">
+          <app-device 
+              *ngFor="let device of devices; let i = index" 
+              [name]='device.name' 
+              [status]="device.status"
+              [indexOfDevice]="i"
+            ></app-device>
+          <app-device name="Bureau" status="on"></app-device>
+        </ul>
+        <button (click)="onTurnLightOn()" class="btn btn-success" [disabled]="!isAuth">Turn on all</button>
+        <button (click)="onTurnLightOff()" class="btn btn-danger">Turn off all</button>
+      </div>
+    </div>
+  </div>
