@@ -4,10 +4,13 @@
         <h2>Devices :</h2>
   
         <p>Mise à jour : {{ lastUpdate | date: 'EEEE d MMMM y' | lowercase }}</p>
+
+        <a class="btn btn-warning" routerLink="/edit-device">Edit device</a>
   
         <ul class="list-group">
           <app-device 
               *ngFor="let device of devices; let i = index" 
+              [id]='device.id' 
               [name]='device.name' 
               [status]="device.status"
               [indexOfDevice]="i"

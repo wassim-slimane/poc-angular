@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,41 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
-  todoTitle : string = ""
+  todoTitle : string = "";
 
-  todoList : {title: string, status: boolean}[] = [
-    {
-      title: "tache 1",
-      status: false,
-    },
-    {
-      title: "tache 2",
-      status: false,
-    },
-    {
-      title: "tache 3",
-      status: false,
-    },
-    {
-      title: "tache 4",
-      status: false,
-    },
-    {
-      title: "tache 5",
-      status: false,
-    }
-  ];
+  todoList : any = [];
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
-
+    this.todoList = this.todoService.todoList;
   }
   
   addTask() {
     // Faire une interface pour la todoList
     if (this.todoTitle.length > 0 && this.todoTitle !== this.todoList.at(-1)?.title) {
-      this.todoList.push({title: this.todoTitle, status: false});
+      this.todoService.addOne(this.todoTitle, false);
     }
   }
 

@@ -8,6 +8,7 @@ import { DeviceService } from '../services/devices.service';
 })
 export class DeviceComponent implements OnInit {
 
+  @Input() id : number = 0;
   @Input() name : string = "";
   @Input() status : string = "";
   @Input() indexOfDevice : number = 0;

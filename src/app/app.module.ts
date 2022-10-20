@@ -8,15 +8,28 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoTaskComponent } from './todo-task/todo-task.component';
 import { DeviceService } from './services/devices.service';
 import { DeviceListComponent } from './device-list/device-list.component';
+import { TodoService } from './services/todo.service';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './services/auth.service';
+import { DeviceDetailsComponent } from './device-details/device-details.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { AuthGuard } from './services/auth-guard.service';
+import { EditDeviceComponent } from './edit-device/edit-device.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DeviceListComponent,
+    DeviceComponent,
     DeviceComponent,
     TodoListComponent,
     TodoTaskComponent,
-    DeviceListComponent
+    DeviceListComponent,
+    AuthComponent,
+    DeviceDetailsComponent,
+    FourOhFourComponent,
+    EditDeviceComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +37,10 @@ import { DeviceListComponent } from './device-list/device-list.component';
     AppRoutingModule
   ],
   providers: [
-    DeviceService
+    DeviceService,
+    TodoService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

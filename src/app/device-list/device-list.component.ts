@@ -10,6 +10,7 @@ export class DeviceListComponent implements OnInit {
 
   isAuth = false;
   devices: any = [];
+  devicesSubscription: any;
 
   lastUpdate = new Date()
 
@@ -20,7 +21,10 @@ export class DeviceListComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.devices = this.deviceService.devices;
+    this.devicesSubscription = this.deviceService.deviceSubject.subscribe((value: any[]) => {
+      this.devices = value;
+    });
+    this.deviceService.emitDeviceSubject();
   }
 
   onTurnLightOff() {

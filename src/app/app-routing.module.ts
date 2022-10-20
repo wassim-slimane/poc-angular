@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AuthComponent } from './auth/auth.component';
+import { DeviceDetailsComponent } from './device-details/device-details.component';
 import { DeviceListComponent } from './device-list/device-list.component';
+import { DeviceComponent } from './device/device.component';
+import { EditDeviceComponent } from './edit-device/edit-device.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { AuthGuard } from './services/auth-guard.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
 
 const routes: Routes = [
-  { path: 'devices', component: DeviceListComponent },
-  { path: 'todo-list', component: TodoListComponent },
+  { path: '', component: AuthComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: 'devices', component: DeviceListComponent, canActivate: [AuthGuard] },
+  { path: 'devices/:id', component: DeviceDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'edit-device', component: EditDeviceComponent, canActivate: [AuthGuard] },
+  { path: 'todo-list', component: TodoListComponent, canActivate: [AuthGuard] },
+  { path: 'not-found', component: FourOhFourComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: "/not-found" },
 ];
 
 @NgModule({

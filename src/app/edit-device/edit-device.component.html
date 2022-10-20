@@ -1,0 +1,16 @@
+<div class="row">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+            <label for="name">Device name</label>
+            <input type="text" id="name" name="name" class="form-control" ngModel required/>
+        </div>
+        <div class="form-group">
+            <label for="status">Device status</label>
+            <select id="status" name="status" [ngModel]="defaultStatus" >
+                <option value="on">On</option>
+                <option value="off">Off</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Save</button>
+    </form>
+</div>

@@ -16,6 +16,7 @@
     <input type="text" class="form-control" [(ngModel)]="name">
 -->
     <button class="btn btn-success" (click)="onSwitchOn()" [disabled]="status === 'on'" >Allumer</button>
-    <button class="btn btn-warning" (click)="onSwitchOff()" [disabled]="status === 'off'" >Éteindre</button>
+    <button class="btn btn-danger" (click)="onSwitchOff()" [disabled]="status === 'off'" >Éteindre</button>
+    <a class="btn btn-warning" [routerLink]="[id]">Details</a>
 
 </li>
