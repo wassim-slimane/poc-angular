@@ -6,8 +6,10 @@ import { DeviceListComponent } from './device-list/device-list.component';
 import { DeviceComponent } from './device/device.component';
 import { EditDeviceComponent } from './edit-device/edit-device.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { NewUserComponent } from './new-user/new-user.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', component: AuthComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'devices/:id', component: DeviceDetailsComponent, canActivate: [AuthGuard] },
   { path: 'edit-device', component: EditDeviceComponent, canActivate: [AuthGuard] },
   { path: 'todo-list', component: TodoListComponent, canActivate: [AuthGuard] },
+  { path: 'users-list', component: UserListComponent, canActivate: [AuthGuard] },
+  { path: 'add-user', component: NewUserComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: FourOhFourComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: "/not-found" },
 ];

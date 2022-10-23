@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DeviceComponent } from './device/device.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,8 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { EditDeviceComponent } from './edit-device/edit-device.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserService } from './services/users.service';
+import { NewUserComponent } from './new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -29,18 +31,21 @@ import { UserListComponent } from './user-list/user-list.component';
     DeviceDetailsComponent,
     FourOhFourComponent,
     EditDeviceComponent,
-    UserListComponent
+    UserListComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     DeviceService,
     TodoService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
